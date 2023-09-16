@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class LoginPage extends StatefulWidget {
@@ -12,7 +13,17 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: child);
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 236, 241, 243),
+        body: SizedBox(
+          width: double.infinity,
+          child: Column(children:
+          
+          ),
+        ),
+      ),
+    );
 
     ///
   }
