@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trilhaapp/pages/home_pages.dart';
+import 'package:trilhaapp/pages/login_page.dart';
 
 class MyApp extends StatelessWidget {
   // ignore: non_constant_identifier_names
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
       //
       debugShowCheckedModeBanner: false, //modo debug
       theme: ThemeData(primarySwatch: Colors.green), //cor
-      home: const HomePage(),
+      home: const LoginPage(),
     );
   }
 }

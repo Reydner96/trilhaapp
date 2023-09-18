@@ -24,11 +24,16 @@ class _HomePageState extends State<HomePage> {
         ), //texto
       ),
       body: Container(
+        width: double.infinity,
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(
+              "Ações do usuário",
+              style: GoogleFonts.roboto(fontSize: 20),
+            ),
             Center(
                 child: Text(
               "Foi clicado $quantidadeClicks vezes",
