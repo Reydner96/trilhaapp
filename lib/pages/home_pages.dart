@@ -11,6 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var numeroGerado = 0;
+  var quantidadeClicks = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +23,30 @@ class _HomePageState extends State<HomePage> {
           style: GoogleFonts.roboto(),
         ), //texto
       ),
-      body: Center(
-          child: Text(
-        numeroGerado.toString(),
-        style: GoogleFonts.roboto(),
-      )),
+      body: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Center(
+                child: Text(
+              "Foi clicado $quantidadeClicks vezes",
+              style: GoogleFonts.roboto(),
+            )),
+            Center(
+                child: Text(
+              "O numero gerado foi: $numeroGerado",
+              style: GoogleFonts.roboto(),
+            )),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add_alert),
           onPressed: () {
             setState(() {
+              quantidadeClicks = quantidadeClicks + 1;
               numeroGerado =
                   GeradorNumeroAleatorioService.gerarNumeroAleatorio(1000);
             });
