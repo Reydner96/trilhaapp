@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:trilhaapp/pages/main_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -10,8 +11,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  var emailController = TextEditingController();
-  var senhaController = TextEditingController();
+  var emailController = TextEditingController(text: "");
+  var senhaController = TextEditingController(text: "");
   // String email = "";
   // String senha = "";
   bool isObscureText = true;
@@ -157,8 +158,26 @@ class _LoginPageState extends State<LoginPage> {
                       width: double.infinity,
                       child: TextButton(
                         onPressed: () {
-                          debugPrint(emailController.text);
-                          debugPrint(senhaController.text);
+                          if (emailController.text.trim() ==
+                                  "email@email.com" &&
+                              senhaController.text.trim() == "123") {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const MainPage()));
+                            // ScaffoldMessenger.of(context).showSnackBar(
+                            // const SnackBar(
+                            // content:
+                            // Text("Login efetuado com sucesso!")));
+                            // debugPrint("Login efetuado com sucesso!");
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text("Erro ao efetuar Login!")));
+                            // debugPrint("Erro ao efetuar o Login!");
+                          }
+                          // debugPrint(emailController.text);
+                          // debugPrint(senhaController.text);
                         },
                         style: ButtonStyle(
                           shape: MaterialStateProperty.all(

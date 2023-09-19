@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // ignore: unused_import
-import 'package:trilhaapp/pages/home_pages.dart';
+import 'package:trilhaapp/pages/main_page.dart';
 import 'package:trilhaapp/pages/login_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //
       debugShowCheckedModeBanner: false, //modo debug
-      theme: ThemeData(primarySwatch: Colors.green), //cor
+      theme: ThemeData(primarySwatch: Colors.deepPurple), //cor
       home: const LoginPage(),
     );
   }
