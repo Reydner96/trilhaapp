@@ -12,6 +12,9 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      body: const Center(
+        child: Text("Dados Cadastráis"),
+      ),
     );
   }
 }

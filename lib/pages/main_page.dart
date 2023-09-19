@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:trilhaapp/pages/dados_cadastrais.dart';
+import 'package:trilhaapp/pages/page_one.dart';
+import 'package:trilhaapp/pages/page_tree.dart';
+import 'package:trilhaapp/pages/page_two.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -9,6 +12,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  PageController controller = PageController(initialPage: 0);
+  int posicaoPage = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -55,6 +60,38 @@ class _MainPageState extends State<MainPage> {
               ],
             ),
           ),
+        ),
+        body: Column(
+          children: [
+            Expanded(
+              child: PageView(
+                controller: controller,
+                onPageChanged: (value) {
+                  setState(() {
+                    posicaoPage = value;
+                  });
+                },
+                children: const [
+                  PageOne(),
+                  PageTwo(),
+                  PageTree(),
+                ],
+              ),
+            ),
+            BottomNavigationBar(
+                onTap: (value) {
+                  controller.jumpToPage(value);
+                },
+                currentIndex: posicaoPage,
+                items: const [
+                  BottomNavigationBarItem(
+                      label: "PageOne", icon: Icon(Icons.home)),
+                  BottomNavigationBarItem(
+                      label: "PageTwo", icon: Icon(Icons.add)),
+                  BottomNavigationBarItem(
+                      label: "PageTree", icon: Icon(Icons.person))
+                ])
+          ],
         ),
       ),
     );
